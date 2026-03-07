@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1772803447584
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1772810464760
+    }
+  }
+}

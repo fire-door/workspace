@@ -5,18 +5,29 @@
 - **feishu-doc** - 飞书文档操作（✅ 已安装）
 - **feishu-drive** - 飞书云存储（✅ 已安装）
 - **feishu-wiki** - 飞书知识库（✅ 已安装）
+- **feishu-perm** - 飞书权限管理（✅ 已安装）
 
 ## 💻 开发工具
 - **skill-creator** - 创建新技能（✅ 已安装）
-- **video-frames** - 视频处理（✅ 已安装）
-- **agent-browser** - 浏览器自动化（✅ 已安装）
-- **find-skills** - 技能发现（✅ 已安装）
+- **video-frames** - 视频帧提取（✅ 已安装）
 
 ## 🏥 系统维护
 - **healthcheck** - 安全加固和健康检查（✅ 已安装）
 
 ## 🌐 技能市场
 - **clawhub** - 技能市场 CLI（✅ 已安装）
+
+## 🔧 其他可用技能（内置）
+OpenClaw 内置了 50+ 技能，包括：
+- **1password** - 密码管理
+- **apple-notes** - Apple 笔记
+- **bear-notes** - Bear 笔记
+- **notion** - Notion 集成
+- **obsidian** - Obsidian 笔记
+- **github** - GitHub 操作
+- **slack** - Slack 集成
+- **spotify-player** - Spotify 控制
+- 更多技能见：`/usr/local/node/lib/node_modules/openclaw/skills/`
 
 ## 🔧 推荐安装
 
