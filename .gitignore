@@ -1,0 +1,24 @@
+# 日志文件
+logs/
+
+# 独立的 git 仓库
+iBar/
+
+# macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# 临时文件
+*.swp
+*.swo
+*~
+
+# 敏感信息
+secrets/
+*.key
+*.pem

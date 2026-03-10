@@ -103,10 +103,15 @@ openclaw status             # 查看状态
 
 ## 📅 定时任务
 
-**当前配置：** 暂无
+**当前配置：**
+
+### 每日天气推送 ✅
+- **时间：** 每天 7:00 AM
+- **脚本：** `~/.openclaw/workspace/scripts/weather-push.sh`
+- **日志：** `~/.openclaw/workspace/logs/weather-push.log`
+- **推送：** 杭州天气 → 飞书私信
 
 **待添加：**
-- [ ] 每日天气推送（7:00 AM）
 - [ ] 系统健康检查（每周）
 
 ---
