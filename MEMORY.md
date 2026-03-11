@@ -220,4 +220,84 @@ kill <clash_pid>
 
 ---
 
-*最后更新：2026-03-10 16:15*
+*最后更新：2026-03-11 23:25*
+
+---
+
+### 2026-03-11 CleanApps Swift 重构项目
+
+**项目地址：** https://github.com/JustFavor/CleanApps
+
+**分支：** `ai_claw`
+
+**目的：** 将 OC 代码重构为 Swift，XIB UI 改为纯代码，解决 App Store 重复应用拒绝问题
+
+#### 已完成工作
+
+**1. 基础架构（17 个 Swift 文件，~145KB）**
+- Model 层：AppModel, FileItem, FileGroup
+- Manager 层：PermissionManager, ScanManager, UninstallManager
+- ViewModel 层：UninstallViewModel
+- Controllers：MainViewController, AppListViewController, UninstallDetailViewController, PermissionGuideViewController, SettingsViewController
+- Views：BaseView, BaseViewController, AppCellView, EmptyStateView, SizeInfoView
+
+**2. 核心功能**
+- ✅ 应用扫描（系统 + 目录枚举）
+- ✅ 文件关联扫描（缓存、偏好设置等）
+- ✅ 批量卸载
+- ✅ 拖放卸载
+- ✅ 权限检查和引导（不触发系统提示）
+- ✅ 进度跟踪
+
+**3. UI 功能**
+- ✅ 搜索/过滤
+- ✅ 排序（大小升序/降序、名称、日期）
+- ✅ 默认排序：按大小升序（从小到大）
+- ✅ 多选
+- ✅ 详情页（OutlineView 展示文件）
+- ✅ 加载状态显示
+- ✅ Cell 右键菜单（在 Finder 中显示、查看关联文件、卸载）
+- ✅ Cell 版本号显示
+- ✅ 设置窗口（权限设置、通用设置、关于）
+
+**4. AppDelegate 集成**
+- ✅ 导入 Swift 头文件 (CleanApps-Swift.h)
+- ✅ 使用 MainViewController 替代旧 OC 窗口
+- ✅ 保留菜单栏、守护进程通信等功能
+
+#### 技术要点
+
+**权限检测（避免触发系统提示）：**
+```swift
+// 安全检测（不触发提示）
+func getFullDiskAuthorizationStatus() -> FullDiskAuthorizationStatus
+
+// 真实检测（会触发提示，仅在用户主动操作时调用）
+func checkRealFullDiskAccessStatus() -> FullDiskAuthorizationStatus
+```
+
+**排序修复：**
+- 合并 `filterApps()` 和 `sortApps()` 为 `filterAndSortApps()`
+- 确保先过滤再排序，避免顺序错误
+
+**目录结构：**
+```
+CleanApps/Classes/Swift/
+├── Models/
+├── Managers/
+├── ViewModels/
+├── Controllers/
+├── Views/
+│   ├── Base/
+│   ├── Cells/
+│   └── Components/
+└── Utils/
+```
+
+#### 待完成
+
+- ⬜ 完善 Helper 通信（XPC/CFNotification）
+- ⬜ 完善本地化字符串
+- ⬜ 测试和修复 bug
+- ⬜ 移除废弃 OC 代码
+- ⬜ 移除 XIB 文件
